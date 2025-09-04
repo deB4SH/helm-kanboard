@@ -30,6 +30,8 @@ pvc:
 service: 
   loadbalancer:
     enabled: false
+    isMetalLb: false
+    isCilium: false
     ip: 127.0.0.1
 
 ingresses:
