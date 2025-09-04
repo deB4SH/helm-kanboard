@@ -4,6 +4,15 @@ kind: Service
 apiVersion: v1
 metadata:
   name: kanboard-lb
+  annotations:
+    {{- if .Values.service.loadbalancer.isMetalLb}}
+    metallb.universe.tf/loadBalancerIPs: {{.Values.service.loadbalancer.ip}}
+    metallb.universe.tf/allow-shared-ip: kanboard
+    {{- end}}
+    {{- if .Values.service.loadbalancer.isCilium}}
+    io.cilium/lb-ipam-ips: {{.Values.service.loadbalancer.ip}}
+    io.cilium/lb-ipam-sharing-key: kanboard
+    {{- end}}
 spec:
   type: LoadBalancer
   selector:
