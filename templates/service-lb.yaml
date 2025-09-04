@@ -1,3 +1,5 @@
+---
+{{ if .Values.service.loadbalancer.enabled }}
 kind: Service
 apiVersion: v1
 metadata:
@@ -13,4 +15,4 @@ spec:
       protocol: TCP
   externalTrafficPolicy: Local
   loadBalancerIP: {{ .Values.service.loadbalancer.ip }}
-  
+  {{ end }}
