@@ -4,7 +4,7 @@ deployment:
   rolloutStrategy: Recreate
   image:
     location: ghcr.io/kanboard/kanboard
-    tag: v1.2.26 
+    tag: v1.2.52
   resources: {}
     #limits:
     #  cpu: 150m
@@ -27,7 +27,7 @@ pvc:
     #size in Gi
     storageSize: 5
 
-service: 
+service:
   loadbalancer:
     enabled: false
     isMetalLb: false
@@ -139,7 +139,7 @@ configuration:
   secureHttpHeaders:
     enableHsts: "true"
     enableXframe: "true"
-  session: 
+  session:
     duration: "0"
     handler: "db"
   uploadedFiles:
